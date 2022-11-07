@@ -1,0 +1,19 @@
+
+<% if user_signed_in? %>
+  <div class="mt-4 container text-center">
+      <%= link_to "+ Add Group", new_group_path, :class => 'btn btn-md btn-primary' %>
+      <hr/>
+
+  </div>
+
+  <div class="mt-4 container text-center">
+
+        <% @group.each do |g| %>
+          <h1><%= g.name %></h1><hr/>
+        <% end %>
+  </div>
+
+
+
+<% end %>
+
