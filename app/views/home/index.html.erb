@@ -7,11 +7,25 @@
   </div>
 
   <div class="mt-4 container text-center">
+        <div class="row">
+          <% @group.each do |g| %>
+                <div class="col-lg-4 card m-4" style="width: 18rem;">
+                  <div class="card-body">
+                    <h1 class="card-title"><%= g.name %></h1><hr/>
+                    <% g.users.each do |u| %>
+                      <p class="card-text"><%= u.email%></p>
+                    <% end %>
+                    <a href="#" class="btn btn-primary">View Group</a>
+                    <li><%= link_to "Show", user_listing_path(id: @user.id, id: listing.id) %></li>
 
-        <% @group.each do |g| %>
-          <h1><%= g.name %></h1><hr/>
-        <% end %>
+                  </div>
+                </div>
+
+          <% end %>
+        </div>
+
   </div>
+  
 
 
 
