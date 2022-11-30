@@ -12,12 +12,15 @@ class GroupsController < ApplicationController
         @user = current_user   
         @group.users << @user
         email_params["emails"].split(",").each do |e|
-            @group.users << User.where(email: e)
+            if !@group.users.collect { |p| "#{p[:email]}" }.include?(e)
+                @group.users << User.where(email: e)
+            end
         end
         # @group.users << @test
         if @group.save
             redirect_to root_path     
         end
+
     end
 
     def email_params
@@ -25,8 +28,16 @@ class GroupsController < ApplicationController
     end
 
     def show
-        
+        @group = Group.find_by_id(params[:id])
+        @expenses = Expense.where(group_id: @group.id)
+
+
     end
+
+    # def new_expense
+    #     @total = params[:total]
+    #     redirect_to root_url
+    # end
 
      
 end

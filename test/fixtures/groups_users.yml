@@ -1,9 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  groups: one
-  users: one
+  expense: 1.5
+  user: one
+  group: one
 
 two:
-  groups: two
-  users: two
+  expense: 1.5
+  user: two
+  group: two

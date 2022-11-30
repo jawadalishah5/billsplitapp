@@ -12,11 +12,10 @@
                 <div class="col-lg-4 card m-4" style="width: 18rem;">
                   <div class="card-body">
                     <h1 class="card-title"><%= g.name %></h1><hr/>
-                    <% g.users.each do |u| %>
+                    <% g.users.uniq.each do |u| %>
                       <p class="card-text"><%= u.email%></p>
                     <% end %>
-                    <a href="#" class="btn btn-primary">View Group</a>
-                    <li><%= link_to "Show", user_listing_path(id: @user.id, id: listing.id) %></li>
+                    <%= link_to "View Group", group_path(id: g.id), :class => 'btn btn-primary'%>
 
                   </div>
                 </div>
